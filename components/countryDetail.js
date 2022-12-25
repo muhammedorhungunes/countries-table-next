@@ -28,7 +28,9 @@ export default function CountryDetail(props) {
             <dt className="text-sm font-medium text-gray-500">Full name</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{props?.selectedCountry[0]?.name?.official ? props.selectedCountry[0].name.official:''}</dd>
           </div>
-          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          {
+            props?.selectedCountry[0]?.languages ? 
+          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Languages</dt>
             {Object.keys(props?.selectedCountry[0]?.languages)?.map((key,index) => {
               if(props.selectedCountry[0].languages[key]) 
@@ -36,11 +38,20 @@ export default function CountryDetail(props) {
               return <div key={index}></div>
             })}
           </div>
+          :
+          <div></div>
+          }
+          {
+          props?.selectedCountry[0]?.capital ? 
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Capital</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{props?.selectedCountry[0]?.capital[0] ? props.selectedCountry[0].capital[0] : ''}</dd>
-          </div>    
-          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          </div>
+          :
+          <div></div>
+          }
+           
+          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Flag</dt>
             <img className="w-1/4" src={props?.selectedCountry[0]?.flags?.svg ? props.selectedCountry[0].flags.svg : '' }></img>
           </div>
@@ -48,7 +59,7 @@ export default function CountryDetail(props) {
             <dt className="text-sm font-medium text-gray-500">Coat of arms</dt>
             <img className="w-1/4" src={props?.selectedCountry[0]?.coatOfArms?.png ? props.selectedCountry[0].coatOfArms.png : ''}></img>
           </div>
-          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Area</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{props?.selectedCountry[0]?.area ? props.selectedCountry[0].area : ''}</dd>
           </div>
@@ -56,22 +67,28 @@ export default function CountryDetail(props) {
             <dt className="text-sm font-medium text-gray-500">Population</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{props?.selectedCountry[0]?.population ? props.selectedCountry[0].population : ''}</dd>
           </div>
-          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Continent</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{props?.selectedCountry[0]?.continents[0] ? props.selectedCountry[0].continents[0] : ''}</dd>
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Independent</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{props?.selectedCountry[0]?.independent ? 'Independent':'Not Independent'}</dd>
-          </div>  
-          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          </div> 
+          {
+            props?.selectedCountry[0]?.currencies ?
+            <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Currencies</dt>
             {Object.keys(props?.selectedCountry[0]?.currencies)?.map(key => {
               if(props?.selectedCountry[0]?.currencies[key]?.name)
                 return <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0" key={key}>{props.selectedCountry[0].currencies[key].name} ({props.selectedCountry[0].currencies[key].symbol})</dd>
               return <div key={index}></div>  
             })}   
-          </div>
+          </div> 
+          : 
+          <div></div>
+
+          } 
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Maps</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
