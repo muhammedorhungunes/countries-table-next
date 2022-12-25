@@ -30,10 +30,10 @@ export default function CountryDetail(props) {
           </div>
           <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Languages</dt>
-            {Object.keys(props?.selectedCountry[0]?.languages)?.map(key => {
+            {Object.keys(props?.selectedCountry[0]?.languages)?.map((key,index) => {
               if(props.selectedCountry[0].languages[key]) 
                 return <dd className="mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0" key={key}>{props.selectedCountry[0].languages[key]}</dd>
-              return <div></div>
+              return <div key={index}></div>
             })}
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -69,7 +69,7 @@ export default function CountryDetail(props) {
             {Object.keys(props?.selectedCountry[0]?.currencies)?.map(key => {
               if(props?.selectedCountry[0]?.currencies[key]?.name)
                 return <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0" key={key}>{props.selectedCountry[0].currencies[key].name} ({props.selectedCountry[0].currencies[key].symbol})</dd>
-              return <div></div>  
+              return <div key={index}></div>  
             })}   
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
