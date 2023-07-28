@@ -17,7 +17,7 @@ export default function SelectMenu({filteredContinents, selected, setSelected}) 
         })
   
   return (
-    <Combobox value={selected} onChange={setSelected}>
+    <Combobox value={selected} onChange={setSelected} className="h10">
       {({ open }) => (
         <>
           <Combobox.Label className="block text-sm font-medium text-gray-700 float-left">Continents</Combobox.Label>

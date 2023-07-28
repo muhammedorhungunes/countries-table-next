@@ -5,7 +5,7 @@ function Search({ setSearchValue, searchValue}) {
     return (
       <>
         <div>
-            <div className="mt-5 flex rounded-md shadow-sm w-full mr-8" style={{height:'38px'}}>
+            <div className="h-10 mt-5 flex rounded-md shadow-sm w-full mr-8" >
                 <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300  px-3 text-sm text-gray-500">
                     <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
                 </span>

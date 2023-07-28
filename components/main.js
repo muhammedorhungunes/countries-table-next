@@ -17,8 +17,6 @@ function Main(props){
     const [countriesPerPage] = useState(10);
     const dispatch = useDispatch();
     const currentPage = useSelector(selectPaginate);
-    
-
    
     useEffect(()=>{
         setSearchValue('');
@@ -69,12 +67,11 @@ function Main(props){
     return( 
         <div className='overflow-x-auto relative m-2 '>
             <div className='flex flex-row w-full'>
-                <div className='basis-1/4'>
+                <div className='basis-1/2 '>
                 <SelectMenu filteredContinents={filteredContinents} selected={selected} setSelected={setSelected}/>
                 </div>
-                <div className='basis-1/4'></div>
-                <div className='basis-1/4'></div>
-                <div className='basis-1/4'>
+            
+                <div className='basis-1/2'>
                     <Search setSearchValue={setSearchValue} searchValue={searchValue}/>
                 </div>
             </div>
